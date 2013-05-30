@@ -15,6 +15,10 @@
 		</div>
 
 		<textarea id="tex-field"></textarea>
+
+		<div id="control-bar">
+			<button type="button">PDF ME!</button>
+		</div>
 	</div>
 
 	<!-- GitHub fork button -->
