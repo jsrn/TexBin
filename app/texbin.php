@@ -6,6 +6,11 @@ class TeXBin
 	{
 		$rawTex = $_POST['tex'];
 
+		if( isset($_POST['repl']) && $_POST['repl'] != '')
+		{
+			$rawTex = $this->processReplacements( $rawTex );
+		}
+
 		$filename = time();
 
 		$newTexFile = "$filename.tex"; 
@@ -27,6 +32,18 @@ class TeXBin
 	    $this->cleanUp( $filename );
 	}
 
+	function processReplacements( $tex )
+	{
+		$parts = json_decode($_POST['repl']);
+
+		foreach( $parts as $part )
+		{
+			$tex = str_replace( '$'.$part->key, $part->val, $tex);
+		}
+
+		return $tex;
+	}
+
 	function getPDF( $filename )
 	{
 		if( file_exists( "$filename.pdf" ) )
@@ -38,7 +55,6 @@ class TeXBin
 		{
 			$this->getErrorLog( $filename );
 		}
-		
 	}
 
 	function deletePDF( $filename )
