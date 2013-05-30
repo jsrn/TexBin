@@ -1,0 +1,34 @@
+body
+{
+	font-family: sans-serif;
+	background-color: #e8ddbe;
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+	font-style: italic;
+	width: 100%;
+}
+
+#header
+{
+	padding: 5px;
+}
+
+#content
+{
+	width: 960px;
+	margin: 0 auto;
+}
+
+#tex-field
+{
+	resize: none; 
+	width: 956px;
+	height: 400px;
+	margin-top: 10px;
+	padding: 2px;
+	border: solid black 1px;
+	-moz-box-shadow: inset 0 0 5px #888;
+	-webkit-box-shadow: inset 0 0 5px#888;
+	box-shadow: inner 0 0 5px #888;
+}
