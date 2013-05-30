@@ -22,15 +22,23 @@ class TeXBin
 
 	    $pdfFile = "$filename.pdf";
 
-		TeXBin::cleanUp( $filename );
+		TeXBin::getPDF( $filename );
 
-	    TeXBin::getPDF( $filename );
+	    TeXBin::cleanUp( $filename );
 	}
 
 	function getPDF( $filename )
 	{
-		header( "Content-type: application/pdf" );
-	    echo( file_get_contents( "$filename.pdf" ) );
+		if( file_exists( "$filename.pdf" ) )
+		{
+			header( "Content-type: application/pdf" );
+	    	echo( file_get_contents( "$filename.pdf" ) );
+		}
+		else
+		{
+			TeXBin::getErrorLog( $filename );
+		}
+		
 	}
 
 	function deletePDF( $filename )
@@ -43,6 +51,15 @@ class TeXBin
 		unlink( "$filename.log" );
 		unlink( "$filename.aux" );
 		unlink( "$filename.tex" );
+	}
+
+	function getErrorLog( $filename )
+	{
+		$lines = file( "$filename.log" );
+
+		foreach ($lines as $line) {
+			echo "$line<br>";
+		}
 	}
 }
 
