@@ -48,6 +48,12 @@ Hello, world!
 		</div>
 	</div>
 
+	<form id="post-form" method="POST" action="texbin.php" target="_blank">
+		<textarea id="post-tex" name="tex"></textarea>
+		<input id="post-repl" name="repl">
+		<input type="submit" value="Send">
+	</form>
+
 	<!-- GitHub fork button -->
 	<a target="_blank" href="https://github.com/jsrn/TexBin"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
 
