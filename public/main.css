@@ -9,6 +9,16 @@ body
 	width: 100%;
 }
 
+.shadow-border
+{
+	padding: 2px;
+	border: solid black 1px;
+	-moz-box-shadow: inset 0 0 5px #888;
+	-webkit-box-shadow: inset 0 0 5px#888;
+	box-shadow: inner 0 0 5px #888;
+	background-color: #f7f3e9;
+}
+
 #header
 {
 	padding: 5px;
@@ -26,12 +36,6 @@ body
 	width: 956px;
 	height: 400px;
 	margin-top: 10px;
-	padding: 2px;
-	border: solid black 1px;
-	-moz-box-shadow: inset 0 0 5px #888;
-	-webkit-box-shadow: inset 0 0 5px#888;
-	box-shadow: inner 0 0 5px #888;
-	background-color: #f7f3e9;
 }
 
 #control-bar
@@ -63,4 +67,18 @@ body
 #var-rep-button
 {
 	margin-left: 5px;
+}
+
+#replacement-fields
+{
+	margin-top: 10px;
+	display: none;
+}
+
+#replacement-fields input
+{
+	margin-top: 5px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
 }
