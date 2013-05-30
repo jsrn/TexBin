@@ -14,7 +14,13 @@
 			TexBin - A quick and dirty web front end for pdflatex.
 		</div>
 
-		<textarea id="tex-field"></textarea>
+		<textarea id="tex-field">\documentclass[11pt]{article}
+
+\begin{document}
+
+Hello, world!
+
+\end{document}</textarea>
 
 		<div id="control-bar">
 			<button type="button">PDF ME!</button>
