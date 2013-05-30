@@ -16,7 +16,7 @@
 			TexBin - A quick and dirty web front end for pdflatex.
 		</div>
 
-		<textarea id="tex-field">\documentclass[11pt]{article}
+		<textarea id="tex-field" class="shadow-border">\documentclass[11pt]{article}
 
 \begin{document}
 
@@ -28,6 +28,23 @@ Hello, world!
 			<button type="button" onclick="sendTeX()">PDF ME!</button>
 
 			<button id="var-rep-button" type="button" onclick="toggleVarReplacement()">VAR REP: OFF</button>
+		</div>
+
+		<div id="replacement-fields">
+			<input placeholder="Variable 1" class="shadow-border">
+			<input placeholder="Value 1"class="shadow-border"><br>
+
+			<input placeholder="Variable 2"class="shadow-border">
+			<input placeholder="Value 2"class="shadow-border"><br>
+			
+			<input placeholder="Variable 3"class="shadow-border">
+			<input placeholder="Value 3"class="shadow-border"><br>
+			
+			<input placeholder="Variable 4"class="shadow-border">
+			<input placeholder="Value 4"class="shadow-border"><br>
+			
+			<input placeholder="Variable 5"class="shadow-border">
+			<input placeholder="Value 5"class="shadow-border"><br>
 		</div>
 	</div>
 
