@@ -2,11 +2,13 @@ var variableReplacement = false;
 
 function sendTeX()
 {
-	var tex = $("#tex-field").val();
-	
-	$('<form action="texbin.php" style="display: none;" method="POST" target="_blank">'
-		+'<textarea name="tex">' + tex + '</textarea>'
-		+'</form>').appendTo('body').submit();
+	$("#post-tex").val( $("#tex-field").val() );
+	if( variableReplacement ){
+		$("#post-repl").val( buildReplacementsObject() );
+	} else {
+		$("#post-repl").val( '' );
+	}
+	$("#post-form").submit();
 }
 
 function toggleVarReplacement()
@@ -27,5 +29,33 @@ function toggleVarReplacement()
 
 function buildReplacementsObject()
 {
+	var count = 0;
+	var key, val;
+	var obj = new Object();
+	var array = new Array();
 
+	$("#replacement-fields input").each(function( index ) {
+		var v = $(this).val();
+
+		if( v != '')
+		{
+			switch( count )
+			{
+				case 0:
+					key = v;
+					count++;
+					break;
+				case 1:
+					val = v;
+					count = 0;
+					var obj = new Object();
+					obj.key = key;
+					obj.val = val;
+					array.push(obj);
+					break;
+			}
+		}
+	});
+
+	return JSON.stringify(array);
 }
