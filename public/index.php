@@ -26,6 +26,8 @@ Hello, world!
 
 		<div id="control-bar">
 			<button type="button" onclick="sendTeX()">PDF ME!</button>
+
+			<button id="var-rep-button" type="button" onclick="toggleVarReplacement()">VAR REP: OFF</button>
 		</div>
 	</div>
 
