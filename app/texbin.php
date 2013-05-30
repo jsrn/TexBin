@@ -22,9 +22,9 @@ class TeXBin
 
 	    $pdfFile = "$filename.pdf";
 
-		TeXBin::getPDF( $filename );
+		$this->getPDF( $filename );
 
-	    TeXBin::cleanUp( $filename );
+	    $this->cleanUp( $filename );
 	}
 
 	function getPDF( $filename )
@@ -36,7 +36,7 @@ class TeXBin
 		}
 		else
 		{
-			TeXBin::getErrorLog( $filename );
+			$this->getErrorLog( $filename );
 		}
 		
 	}
