@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<title>TexBin | TeX goes in, PDF comes out</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<script src="jquery-1.10.0.min.js"></script>
-	<script src="texbin.js"></script>
+	<script src="js/jquery-1.10.0.min.js"></script>
+	<script src="js/texbin.js"></script>
 </head>
 
 <body>
