@@ -22,7 +22,9 @@ class TeXBin
 
 	    $pdfFile = "$filename.pdf";
 
-	    TeXBin::cleanUp( $filename );
+		TeXBin::cleanUp( $filename );
+
+	    TeXBin::getPDF( $filename );
 	}
 
 	function getPDF( $filename )
