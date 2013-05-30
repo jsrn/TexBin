@@ -3,7 +3,8 @@ include '../app/texbin.php';
 
 if( isset( $_POST['tex'] ) && $_POST['tex'] != '' )
 {
-	TeXBin::processTeX();
+	$texBin = new TeXBin();
+	$texBin->processTeX();
 }
 else
 {
