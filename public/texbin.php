@@ -1,14 +1,13 @@
 <?php
 include '../app/texbin.php';
 
-if( isset( $_POST['mode'] ) )
+if( isset( $_POST['tex'] ) && $_POST['tex'] != '' )
 {
-	switch( $_POST['mode'] )
-	{
-		case 'internal':
-			TeXBin::processTeX();
-			break;
-	}
+	TeXBin::processTeX();
+}
+else
+{
+	die( "Error: Post variable 'tex' must contain well formatted TeX markup." );
 }
 
 ?>
