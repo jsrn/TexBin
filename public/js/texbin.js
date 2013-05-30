@@ -16,9 +16,16 @@ function toggleVarReplacement()
 	if( variableReplacement )
 	{
 		$("#var-rep-button").html("VAR REP: ON");
+		$("#replacement-fields").slideDown("fast");
 	}
 	else
 	{
 		$("#var-rep-button").html("VAR REP: OFF");
+		$("#replacement-fields").slideUp("fast");
 	}
+}
+
+function buildReplacementsObject()
+{
+
 }
