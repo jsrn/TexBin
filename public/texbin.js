@@ -1,8 +1,6 @@
 function sendTeX()
 {
 	var tex = $("#tex-field").val();
-	$.post(
-		"controller.php",
-		{ tex: tex }
-		);
+	
+	$('<form action="controller.php" style="display: none;" method="POST" target="_blank"><textarea name="tex">' + tex + '</textarea></form>').appendTo('body').submit();
 }
