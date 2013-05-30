@@ -14,6 +14,8 @@
 	<div id="content">
 		<div id="header">
 			TexBin - A quick and dirty web front end for pdflatex. Lets you do a a few neat things like submit a template with an array of variables, like a giant sprintf. An excellent resource on LaTeX is available <a href="http://en.wikibooks.org/wiki/LaTeX/">here</a>.
+			<br>
+			<b>Disclaimer:</b> I'm still evaluating the risks of hosting a LaTeX evaluator on a public server (preliminary reading suggests moderate), but this idea seems pretty cool for group use in private!
 		</div>
 
 		<textarea id="tex-field" class="shadow-border">\documentclass[11pt]{article}
