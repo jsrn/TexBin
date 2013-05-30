@@ -82,3 +82,8 @@ body
 	line-height: 30px;
 	font-size: 15px;
 }
+
+#post-form
+{
+	display: none;
+}
