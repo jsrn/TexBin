@@ -3,9 +3,9 @@
 class TeXBin
 {
 	// CONFIGURATION
-	private $private = true;
+	private $private = false;
 	private $password = "changeme";
-	private $pdflatexPath = "C:/Progra~2/miktex~1.9/miktex/bin/pdflatex.exe";
+	private $pdflatexPath = "pdflatex.exe";
 
 	function processTeX()
 	{
@@ -79,11 +79,19 @@ class TeXBin
 
 	function getErrorLog( $filename )
 	{
-		$lines = file( "$filename.log" );
+		if( file_exists( "$filename.log" ) )
+		{
+			$lines = file( "$filename.log" );
 
-		foreach ($lines as $line) {
-			echo "$line<br>";
+			foreach ($lines as $line) {
+				echo "$line<br>";
+			}
 		}
+		else
+		{
+			echo "Unable to read error log.";
+		}
+		
 	}
 
 	function authenticate()
