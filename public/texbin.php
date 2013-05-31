@@ -1,9 +1,15 @@
 <?php
 include '../app/texbin.php';
 
+$texBin = new TeXBin();
+
+if( !$texBin->authenticate() )
+{
+	die( $texBin->authFailureMessage() );
+}
+
 if( isset( $_POST['tex'] ) && $_POST['tex'] != '' )
 {
-	$texBin = new TeXBin();
 	$texBin->processTeX();
 }
 else

@@ -2,6 +2,11 @@
 
 class TeXBin
 {
+	// CONFIGURATION
+	private $private = true;
+	private $password = "changeme";
+	private $pdflatexPath = "C:/Progra~2/miktex~1.9/miktex/bin/pdflatex.exe";
+
 	function processTeX()
 	{
 		$rawTex = $_POST['tex'];
@@ -23,7 +28,7 @@ class TeXBin
 
 	    fclose($texWriter);
 
-	    exec("C:/Progra~2/miktex~1.9/miktex/bin/pdflatex.exe " . $newTexFile);
+	    exec("$this->pdflatexPath $newTexFile");
 
 	    $pdfFile = "$filename.pdf";
 
@@ -59,14 +64,17 @@ class TeXBin
 
 	function deletePDF( $filename )
 	{
-		unlink("$filename.pdf");
+		if( file_exists( "$filename.pdf" ) )
+			unlink( "$filename.pdf" );
 	}
 
 	function cleanUp( $filename )
 	{
-		unlink( "$filename.log" );
-		unlink( "$filename.aux" );
-		unlink( "$filename.tex" );
+		foreach( array('log','aux','tex') as $ext )
+		{
+			if( file_exists( "$filename.$ext" ) )
+				unlink( "$filename.$ext" );
+		}
 	}
 
 	function getErrorLog( $filename )
@@ -76,6 +84,25 @@ class TeXBin
 		foreach ($lines as $line) {
 			echo "$line<br>";
 		}
+	}
+
+	function authenticate()
+	{
+		if( !$this->private )
+			return true;
+
+		if( !isset( $_POST['pass'] ) )
+			return false;
+
+		if( $this->password == $_POST['pass'])
+			return true;
+
+		return false;
+	}
+
+	function authFailureMessage()
+	{
+		return "Authentication failure.";
 	}
 }
 
